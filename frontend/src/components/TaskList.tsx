@@ -5,11 +5,12 @@ interface TaskListProps {
     tasks: Task[];
     onEdit: (task: Task) => void;
     onDelete: (id: string) => void;
+    editingTask: Task | null
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete, editingTask }) => {
     return (
-        <div className='nsw-list nsw-list--8'>
+        <div className=''>
             {tasks.map(task => (
                 <div key={task.id} className="nsw-list-item">
                     <div className='nsw-list-item__content'>
@@ -17,7 +18,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onEdit, onDelete }) => {
                         <p>{task.description}</p>
                         <div className="nsw-list nsw-list--8">
                             <button className="nsw-button nsw-button--dark-outline-solid" onClick={() => onEdit(task)}>Edit</button>
-                            <button className="nsw-button nsw-button--danger" onClick={() => onDelete(task.id)}>Delete</button>
+                            <button disabled={editingTask?.id === task.id ? true : false} className="nsw-button nsw-button--danger" onClick={() => onDelete(task.id)}>Delete</button>
                         </div>
                     </div>
 

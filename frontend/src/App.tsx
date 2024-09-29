@@ -43,6 +43,7 @@ const App: React.FC = () => {
               tasks={tasks}
               onEdit={setEditingTask}
               onDelete={handleDeleteTask}
+              editingTask={editingTask}
             />
           </div>
         </main>
