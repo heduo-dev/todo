@@ -9,14 +9,14 @@ const mockTasks = [
 ];
 
 test('renders task list', () => {
-    render(<TaskList tasks={mockTasks} onEdit={vi.fn()} onDelete={vi.fn()} />);
+    render(<TaskList tasks={mockTasks} onEdit={vi.fn()} onDelete={vi.fn()} editingTask={null} />);
     expect(screen.getByText('Task 1')).toBeInTheDocument();
     expect(screen.getByText('Task 2')).toBeInTheDocument();
 });
 
 test('calls onEdit when edit button is clicked', () => {
     const mockOnEdit = vi.fn();
-    render(<TaskList tasks={mockTasks} onEdit={mockOnEdit} onDelete={vi.fn()} />);
+    render(<TaskList tasks={mockTasks} onEdit={mockOnEdit} onDelete={vi.fn()} editingTask={null}/>);
     userEvent.click(screen.getAllByText('Edit')[0]);
     waitFor(() => {
         expect(mockOnEdit).toHaveBeenCalledWith(mockTasks[0]);
@@ -26,7 +26,7 @@ test('calls onEdit when edit button is clicked', () => {
 
 test('calls onDelete when delete button is clicked', () => {
     const mockOnDelete = vi.fn();
-    render(<TaskList tasks={mockTasks} onEdit={vi.fn()} onDelete={mockOnDelete} />);
+    render(<TaskList tasks={mockTasks} onEdit={vi.fn()} onDelete={mockOnDelete} editingTask={null}/>);
     userEvent.click(screen.getAllByText('Delete')[0]);
     waitFor(() => {
         expect(mockOnDelete).toHaveBeenCalledWith(mockTasks[0].id);

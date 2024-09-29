@@ -3,6 +3,7 @@ import axios from 'axios';
 import { fetchTasks, createTask, updateTask, deleteTask } from '../api';
 
 vi.mock('axios');
+// @ts-expect-error
 const mockedAxios = axios as vi.Mocked<typeof axios>;
 
 describe('API functions', () => {

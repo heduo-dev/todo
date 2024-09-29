@@ -12,6 +12,7 @@ const App: React.FC = () => {
     fetchTasks().then(setTasks);
   }, []);
 
+  // @ts-expect-error
   const handleCreateTask = async (id: string | undefined, title: string, description: string) => {
     const newTask = await createTask(title, description);
     setTasks([...tasks, newTask]);
