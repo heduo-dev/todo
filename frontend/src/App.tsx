@@ -12,12 +12,12 @@ const App: React.FC = () => {
     fetchTasks().then(setTasks);
   }, []);
 
-  const handleCreateTask = async (id: string, title: string, description: string) => {
+  const handleCreateTask = async (id: string | undefined, title: string, description: string) => {
     const newTask = await createTask(title, description);
     setTasks([...tasks, newTask]);
   };
 
-  const handleUpdateTask = async (id: string, title: string, description: string) => {
+  const handleUpdateTask = async (id: string | undefined, title: string, description: string) => {
     const updatedTask = await updateTask(id, title, description);
     setTasks(tasks.map(task => task.id === id ? updatedTask : task));
     setEditingTask(null);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Task } from '../types';
 
 interface TaskFormProps {
-    onSubmit: (id: string, title: string, description: string) => void;
+    onSubmit: (id: string | undefined, title: string, description: string) => void;
     initialTask?: Task | null;
 }
 
@@ -38,7 +38,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, initialTask }) => {
             </div>
             <div className="nsw-form__group">
                 <textarea
-                  className="nsw-form__input"
+                    className="nsw-form__input"
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                     placeholder="Task description"
