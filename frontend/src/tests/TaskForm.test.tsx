@@ -2,7 +2,7 @@
 import { expect, test, vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import TaskForm from './TaskForm.tsx';
+import TaskForm from '../components/TaskForm';
 
 test('renders empty form', () => {
   render(<TaskForm onSubmit={vi.fn()} />);

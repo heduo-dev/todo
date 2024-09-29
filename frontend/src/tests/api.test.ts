@@ -1,6 +1,6 @@
 import { expect, test, vi, describe, afterEach } from 'vitest'
 import axios from 'axios';
-import { fetchTasks, createTask, updateTask, deleteTask } from './api';
+import { fetchTasks, createTask, updateTask, deleteTask } from '../api';
 
 vi.mock('axios');
 const mockedAxios = axios as vi.Mocked<typeof axios>;
