@@ -1,5 +1,8 @@
 # Task List To-Do Application
 
+## Node.js version
+20.15.1
+
 ## How to run backend API application?
 1. Go to api folder
 ```

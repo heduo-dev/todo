@@ -1,5 +1,8 @@
 # To do list front end application
 
+### Node.js version
+20.15.1
+
 ### How to run frontend React application?
 
 1. Install packages
