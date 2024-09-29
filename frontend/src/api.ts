@@ -9,14 +9,8 @@ export const fetchTasks = async (): Promise<Task[]> => {
 };
 
 export const createTask = async (title: string, description: string): Promise<Task> => {
-    try {
-        const response = await axios.post(`${API_URL}/tasks`, { title, description });
-        console.log(response)
-        return response.data;
-    } catch (error) {
-        console.log(error)
-    }
-
+    const response = await axios.post(`${API_URL}/tasks`, { title, description });
+    return response.data;
 };
 
 export const updateTask = async (id: string, title: string, description: string): Promise<Task> => {
